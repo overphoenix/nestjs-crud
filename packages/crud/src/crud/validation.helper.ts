@@ -4,22 +4,15 @@ import { CrudValidationGroups } from '../enums';
 import { CreateManyDto, CrudOptions, MergedCrudOptions } from '../interfaces';
 import { ApiProperty } from './swagger.helper';
 
-const validator = safeRequire('@nestjs/class-validator', () =>
-  require('@nestjs/class-validator'),
-);
-const transformer = safeRequire('@nestjs/class-transformer', () =>
-  require('@nestjs/class-transformer'),
-);
+const validator = safeRequire('@nestjs/class-validator', () => require('@nestjs/class-validator'));
+const transformer = safeRequire('@nestjs/class-transformer', () => require('@nestjs/class-transformer'));
 
 class BulkDto<T> implements CreateManyDto<T> {
   bulk: T[];
 }
 
 export class Validation {
-  static getValidationPipe(
-    options: CrudOptions,
-    group?: CrudValidationGroups,
-  ): ValidationPipe {
+  static getValidationPipe(options: CrudOptions, group?: CrudValidationGroups): ValidationPipe {
     return validator && !isFalse(options.validation)
       ? new ValidationPipe({
           ...(options.validation || {}),

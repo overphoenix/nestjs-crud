@@ -1,9 +1,5 @@
 import { CrudService } from '../services';
-import {
-  CrudRequest,
-  GetManyDefaultResponse,
-  CreateManyDto,
-} from '../interfaces';
+import { CrudRequest, GetManyDefaultResponse, CreateManyDto } from '../interfaces';
 
 export interface CrudController<T> {
   service: CrudService<T>;

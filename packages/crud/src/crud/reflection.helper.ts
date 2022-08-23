@@ -23,12 +23,7 @@ import {
 import { CrudActions } from '../enums';
 
 export class R {
-  static set(
-    metadataKey: any,
-    metadataValue: any,
-    target: unknown,
-    propertyKey: string | symbol = undefined,
-  ) {
+  static set(metadataKey: any, metadataValue: any, target: unknown, propertyKey: string | symbol = undefined) {
     if (propertyKey) {
       Reflect.defineMetadata(metadataKey, metadataValue, target, propertyKey);
     } else {
@@ -36,11 +31,7 @@ export class R {
     }
   }
 
-  static get<T extends any>(
-    metadataKey: any,
-    target: unknown,
-    propertyKey: string | symbol = undefined,
-  ): T {
+  static get<T extends any>(metadataKey: any, target: unknown, propertyKey: string | symbol = undefined): T {
     return propertyKey
       ? Reflect.getMetadata(metadataKey, target, propertyKey)
       : Reflect.getMetadata(metadataKey, target);
@@ -79,11 +70,7 @@ export class R {
     };
   }
 
-  static setDecorators(
-    decorators: (PropertyDecorator | MethodDecorator)[],
-    target: any,
-    name: string,
-  ) {
+  static setDecorators(decorators: (PropertyDecorator | MethodDecorator)[], target: any, name: string) {
     // this makes metadata decorator works
     const decoratedDescriptor = Reflect.decorate(
       decorators,
@@ -100,10 +87,7 @@ export class R {
     return R.createCustomRouteArg(PARSED_CRUD_REQUEST_KEY, index);
   }
 
-  static setBodyArg(
-    index: number,
-    /* istanbul ignore next */ pipes: any[] = [],
-  ) {
+  static setBodyArg(index: number, /* istanbul ignore next */ pipes: any[] = []) {
     return R.createRouteArg(RouteParamtypes.BODY, index, pipes);
   }
 
@@ -161,9 +145,7 @@ export class R {
   }
 
   static getRouteArgsTypes(target: any, name: string): any[] {
-    return (
-      R.get(PARAMTYPES_METADATA, target, name) || /* istanbul ignore next */ []
-    );
+    return R.get(PARAMTYPES_METADATA, target, name) || /* istanbul ignore next */ [];
   }
 
   static getParsedBody(func: unknown): any {
@@ -171,8 +153,6 @@ export class R {
   }
 
   static getContextRequest(ctx: ArgumentsHost): any {
-    return isFunction(ctx.switchToHttp)
-      ? ctx.switchToHttp().getRequest()
-      : /* istanbul ignore next */ ctx;
+    return isFunction(ctx.switchToHttp) ? ctx.switchToHttp().getRequest() : /* istanbul ignore next */ ctx;
   }
 }

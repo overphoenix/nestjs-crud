@@ -1,11 +1,5 @@
 import { ObjectLiteral } from '@recalibratedsystems/netsjs-crud-util';
-import {
-  QueryFields,
-  QueryFilter,
-  QueryJoin,
-  QuerySort,
-  SCondition,
-} from '../types';
+import { QueryFields, QueryFilter, QueryJoin, QuerySort, SCondition } from '../types';
 
 export interface ParsedRequestParams {
   fields: QueryFields;

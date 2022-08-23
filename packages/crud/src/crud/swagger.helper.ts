@@ -6,9 +6,7 @@ import { BaseRouteName } from '../types';
 import { R } from './reflection.helper';
 const pluralize = require('pluralize');
 
-export const swagger = safeRequire('@nestjs/swagger', () =>
-  require('@nestjs/swagger'),
-);
+export const swagger = safeRequire('@nestjs/swagger', () => require('@nestjs/swagger'));
 export const swaggerConst = safeRequire('@nestjs/swagger/dist/constants', () =>
   require('@nestjs/swagger/dist/constants'),
 );
@@ -54,11 +52,7 @@ export class Swagger {
           .map((name) => swaggerModels[name])
           .filter((one) => one && one.name !== swaggerModels.get.name),
       ];
-      R.set(
-        swaggerConst.DECORATORS.API_EXTRA_MODELS,
-        models,
-        swaggerModels.get,
-      );
+      R.set(swaggerConst.DECORATORS.API_EXTRA_MODELS, models, swaggerModels.get);
     }
   }
 
@@ -71,37 +65,25 @@ export class Swagger {
 
   static getOperation(func: any): any {
     /* istanbul ignore next */
-    return swaggerConst
-      ? R.get(swaggerConst.DECORATORS.API_OPERATION, func) || {}
-      : {};
+    return swaggerConst ? R.get(swaggerConst.DECORATORS.API_OPERATION, func) || {} : {};
   }
 
   static getParams(func: any): any[] {
     /* istanbul ignore next */
-    return swaggerConst
-      ? R.get(swaggerConst.DECORATORS.API_PARAMETERS, func) || []
-      : [];
+    return swaggerConst ? R.get(swaggerConst.DECORATORS.API_PARAMETERS, func) || [] : [];
   }
 
   static getExtraModels(target: unknown): any[] {
     /* istanbul ignore next */
-    return swaggerConst
-      ? R.get(swaggerConst.API_EXTRA_MODELS, target) || []
-      : [];
+    return swaggerConst ? R.get(swaggerConst.API_EXTRA_MODELS, target) || [] : [];
   }
 
   static getResponseOk(func: any): any {
     /* istanbul ignore next */
-    return swaggerConst
-      ? R.get(swaggerConst.DECORATORS.API_RESPONSE, func) || {}
-      : {};
+    return swaggerConst ? R.get(swaggerConst.DECORATORS.API_RESPONSE, func) || {} : {};
   }
 
-  static createResponseMeta(
-    name: BaseRouteName,
-    options: MergedCrudOptions,
-    swaggerModels: any,
-  ): any {
+  static createResponseMeta(name: BaseRouteName, options: MergedCrudOptions, swaggerModels: any): any {
     /* istanbul ignore else */
     if (swagger) {
       const { routes, query } = options;
@@ -272,17 +254,12 @@ export class Swagger {
           required: true,
           in: 'path',
           type: options[param].type === 'number' ? Number : String,
-          enum: options[param].enum
-            ? Object.values(options[param].enum)
-            : undefined,
+          enum: options[param].enum ? Object.values(options[param].enum) : undefined,
         }))
       : /* istanbul ignore next */ [];
   }
 
-  static createQueryParamsMeta(
-    name: BaseRouteName,
-    options: MergedCrudOptions,
-  ) {
+  static createQueryParamsMeta(name: BaseRouteName, options: MergedCrudOptions) {
     /* istanbul ignore if */
     if (!swaggerConst) {
       return [];
@@ -580,9 +557,7 @@ export class Swagger {
   }
 
   private static getSwaggerVersion(): number {
-    return swaggerPkgJson
-      ? parseInt(swaggerPkgJson.version[0], 10)
-      : /* istanbul ignore next */ 3;
+    return swaggerPkgJson ? parseInt(swaggerPkgJson.version[0], 10) : /* istanbul ignore next */ 3;
   }
 }
 
@@ -592,9 +567,7 @@ export function ApiProperty(options?: any): PropertyDecorator {
     /* istanbul ignore else */
     if (swagger) {
       // tslint:disable-next-line
-      const ApiPropertyDecorator =
-        swagger.ApiProperty ||
-        /* istanbul ignore next */ swagger.ApiModelProperty;
+      const ApiPropertyDecorator = swagger.ApiProperty || /* istanbul ignore next */ swagger.ApiModelProperty;
       // tslint:disable-next-line
       ApiPropertyDecorator(options)(target, propertyKey);
     }

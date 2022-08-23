@@ -1,11 +1,4 @@
-import {
-  hasValue,
-  isObject,
-  isString,
-  isArrayFull,
-  isNil,
-  isUndefined,
-} from '@recalibratedsystems/netsjs-crud-util';
+import { hasValue, isObject, isString, isArrayFull, isNil, isUndefined } from '@recalibratedsystems/netsjs-crud-util';
 import { stringify } from 'qs';
 
 import { RequestQueryBuilderOptions, CreateQueryParams } from './interfaces';
@@ -86,9 +79,7 @@ export class RequestQueryBuilder {
   setParamNames() {
     Object.keys(RequestQueryBuilder._options.paramNamesMap).forEach((key) => {
       const name = RequestQueryBuilder._options.paramNamesMap[key];
-      this.paramNames[key] = isString(name)
-        ? (name as string)
-        : (name[0] as string);
+      this.paramNames[key] = isString(name) ? (name as string) : (name[0] as string);
     });
   }
 
@@ -104,9 +95,7 @@ export class RequestQueryBuilder {
   select(fields: QueryFields): this {
     if (isArrayFull(fields)) {
       validateFields(fields);
-      this.queryObject[this.paramNames.fields] = fields.join(
-        this.options.delimStr,
-      );
+      this.queryObject[this.paramNames.fields] = fields.join(this.options.delimStr);
     }
     return this;
   }
@@ -118,16 +107,12 @@ export class RequestQueryBuilder {
     return this;
   }
 
-  setFilter(
-    f: QueryFilter | QueryFilterArr | Array<QueryFilter | QueryFilterArr>,
-  ): this {
+  setFilter(f: QueryFilter | QueryFilterArr | Array<QueryFilter | QueryFilterArr>): this {
     this.setCondition(f, 'filter');
     return this;
   }
 
-  setOr(
-    f: QueryFilter | QueryFilterArr | Array<QueryFilter | QueryFilterArr>,
-  ): this {
+  setOr(f: QueryFilter | QueryFilterArr | Array<QueryFilter | QueryFilterArr>): this {
     this.setCondition(f, 'or');
     return this;
   }
@@ -183,22 +168,12 @@ export class RequestQueryBuilder {
     return this;
   }
 
-  cond(
-    f: QueryFilter | QueryFilterArr,
-    cond: 'filter' | 'or' | 'search' = 'search',
-  ): string {
-    const filter = Array.isArray(f)
-      ? { field: f[0], operator: f[1], value: f[2] }
-      : f;
+  cond(f: QueryFilter | QueryFilterArr, cond: 'filter' | 'or' | 'search' = 'search'): string {
+    const filter = Array.isArray(f) ? { field: f[0], operator: f[1], value: f[2] } : f;
     validateCondition(filter, cond);
     const d = this.options.delim;
 
-    return (
-      filter.field +
-      d +
-      filter.operator +
-      (hasValue(filter.value) ? d + filter.value : '')
-    );
+    return filter.field + d + filter.operator + (hasValue(filter.value) ? d + filter.value : '');
   }
 
   private addJoin(j: QueryJoin | QueryJoinArr): string {
@@ -207,9 +182,7 @@ export class RequestQueryBuilder {
     const d = this.options.delim;
     const ds = this.options.delimStr;
 
-    return (
-      join.field + (isArrayFull(join.select) ? d + join.select.join(ds) : '')
-    );
+    return join.field + (isArrayFull(join.select) ? d + join.select.join(ds) : '');
   }
 
   private addSortBy(s: QuerySort | QuerySortArr): string {
@@ -237,10 +210,7 @@ export class RequestQueryBuilder {
     return this;
   }
 
-  private checkQueryObjectParam(
-    cond: keyof RequestQueryBuilderOptions['paramNamesMap'],
-    defaults: any,
-  ): string {
+  private checkQueryObjectParam(cond: keyof RequestQueryBuilderOptions['paramNamesMap'], defaults: any): string {
     const param = this.paramNames[cond];
     if (isNil(this.queryObject[param]) && !isUndefined(defaults)) {
       this.queryObject[param] = defaults;
@@ -257,18 +227,13 @@ export class RequestQueryBuilder {
       this.queryObject[param] = [
         ...this.queryObject[param],
         ...(Array.isArray(f) && !isString(f[0])
-          ? (f as Array<QueryFilter | QueryFilterArr>).map((o) =>
-              this.cond(o, cond),
-            )
+          ? (f as Array<QueryFilter | QueryFilterArr>).map((o) => this.cond(o, cond))
           : [this.cond(f as QueryFilter | QueryFilterArr, cond)]),
       ];
     }
   }
 
-  private setNumeric(
-    n: number,
-    cond: 'limit' | 'offset' | 'page' | 'cache' | 'includeDeleted',
-  ): void {
+  private setNumeric(n: number, cond: 'limit' | 'offset' | 'page' | 'cache' | 'includeDeleted'): void {
     if (!isNil(n)) {
       validateNumeric(n, cond);
       this.queryObject[this.paramNames[cond]] = n;
