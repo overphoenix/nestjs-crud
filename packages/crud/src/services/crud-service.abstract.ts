@@ -1,6 +1,6 @@
 import { BadRequestException, NotFoundException } from '@nestjs/common';
-import { ParsedRequestParams } from '@recalibratedsystems/netsjs-crud-request';
-import { objKeys } from '@recalibratedsystems/netsjs-crud-util';
+import { ParsedRequestParams } from '@recalibratedsystems/nestjs-crud-request';
+import { objKeys } from '@recalibratedsystems/nestjs-crud-util';
 
 import { CreateManyDto, CrudRequest, CrudRequestOptions, GetManyDefaultResponse, QueryOptions } from '../interfaces';
 

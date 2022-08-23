@@ -1,4 +1,4 @@
-import { hasValue, isObject, isString, isArrayFull, isNil, isUndefined } from '@recalibratedsystems/netsjs-crud-util';
+import { hasValue, isObject, isString, isArrayFull, isNil, isUndefined } from '@recalibratedsystems/nestjs-crud-util';
 import { stringify } from 'qs';
 
 import { RequestQueryBuilderOptions, CreateQueryParams } from './interfaces';

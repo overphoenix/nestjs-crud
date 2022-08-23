@@ -3,7 +3,7 @@ import { APP_FILTER } from '@nestjs/core';
 import { Test } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Crud } from '@nestjsx/crud';
+import { Crud } from '@recalibratedsystems/nestjs-crud';
 import { RequestQueryBuilder } from '@recalibratedsystems/nestjs-crud-request';
 import * as request from 'supertest';
 import { Company } from '../../../integration/crud-typeorm/companies';

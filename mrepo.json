@@ -5,16 +5,16 @@
     "registry": "npm",
     "packages": [
       {
-        "name": "util"
+        "name": "nestjs-crud-util"
       },
       {
-        "name": "crud-request"
+        "name": "nestjs-crud-request"
       },
       {
-        "name": "crud-typeorm"
+        "name": "nestjs-crud-typeorm"
       },
       {
-        "name": "crud"
+        "name": "nestjs-crud"
       }
     ]
   },

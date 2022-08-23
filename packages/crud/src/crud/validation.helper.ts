@@ -1,5 +1,5 @@
 import { ValidationPipe } from '@nestjs/common';
-import { isFalse, isNil, safeRequire } from '@recalibratedsystems/netsjs-crud-util';
+import { isFalse, isNil, safeRequire } from '@recalibratedsystems/nestjs-crud-util';
 import { CrudValidationGroups } from '../enums';
 import { CreateManyDto, CrudOptions, MergedCrudOptions } from '../interfaces';
 import { ApiProperty } from './swagger.helper';

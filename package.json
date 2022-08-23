@@ -42,13 +42,13 @@
   "dependencies": {
     "@nestjs/common": "^9.0.11",
     "@nestjs/core": "^9.0.11",
-    "@nestjs/platform-express": "8.4.3",
+    "@nestjs/platform-express": "^9.0.11",
     "@nestjs/swagger": "^6.0.5",
     "@nestjs/testing": "^9.0.8",
     "@nestjs/typeorm": "^9.0.1",
     "@zmotivat0r/mrepo": "0.8.1",
-    "@nestjs/class-transformer": "0.3.2",
-    "@nestjs/class-validator": "0.13.2",
+    "@nestjs/class-transformer": "^0.4.0",
+    "@nestjs/class-validator": "^0.13.4",
     "mysql": "2.18.1",
     "pg": "8.7.3",
     "pluralize": "8.0.0",
@@ -56,7 +56,7 @@
     "redis": "4.0.4",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.5.5",
-    "swagger-ui-express": "4.3.0",
+    "swagger-ui-express": "^4.5.0",
     "typeorm": "^0.3.7"
   },
   "devDependencies": {

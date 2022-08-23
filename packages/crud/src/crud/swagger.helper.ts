@@ -1,6 +1,6 @@
 import { HttpStatus } from '@nestjs/common';
-import { RequestQueryBuilder } from '@recalibratedsystems/netsjs-crud-request';
-import { isString, objKeys, safeRequire } from '@recalibratedsystems/netsjs-crud-util';
+import { RequestQueryBuilder } from '@recalibratedsystems/nestjs-crud-request';
+import { isString, objKeys, safeRequire } from '@recalibratedsystems/nestjs-crud-util';
 import { MergedCrudOptions, ParamsOptions } from '../interfaces';
 import { BaseRouteName } from '../types';
 import { R } from './reflection.helper';

@@ -12,23 +12,48 @@
     "sourceMap": true,
     "allowJs": false,
     "skipLibCheck": false,
+    "esModuleInterop": true,
     "composite": true,
     "baseUrl": "./packages",
     "paths": {
-      "@nestjsx/crud": ["crud/src"],
-      "@nestjsx/crud-typeorm": ["crud-typeorm/src"],
-      "@recalibratedsystems/nestjs-crud-request": ["crud-request/src"],
-      "@recalibratedsystems/nestjs-crud-util": ["util/src"],
-      "@nestjsx/crud/*": ["crud/src/*"],
-      "@nestjsx/crud-typeorm/*": ["crud-typeorm/src/*"],
-      "@recalibratedsystems/nestjs-crud-request/*": ["crud-request/src/*"],
-      "@recalibratedsystems/nestjs-crud-util/*": ["util/src/*"]
+      "@recalibratedsystems/nestjs-crud": [
+        "crud/src"
+      ],
+      "@recalibratedsystems/nestjs-crud-typeorm": [
+        "crud-typeorm/src"
+      ],
+      "@recalibratedsystems/nestjs-crud-request": [
+        "crud-request/src"
+      ],
+      "@recalibratedsystems/nestjs-crud-util": [
+        "util/src"
+      ],
+      "@recalibratedsystems/nestjs-crud/*": [
+        "crud/src/*"
+      ],
+      "@recalibratedsystems/nestjs-crud-typeorm/*": [
+        "crud-typeorm/src/*"
+      ],
+      "@recalibratedsystems/nestjs-crud-request/*": [
+        "crud-request/src/*"
+      ],
+      "@recalibratedsystems/nestjs-crud-util/*": [
+        "util/src/*"
+      ]
     }
   },
   "references": [
-    { "path": "crud" },
-    { "path": "crud-typeorm" },
-    { "path": "crud-request" },
-    { "path": "util" }
+    {
+      "path": "crud"
+    },
+    {
+      "path": "crud-typeorm"
+    },
+    {
+      "path": "crud-request"
+    },
+    {
+      "path": "util"
+    }
   ]
 }

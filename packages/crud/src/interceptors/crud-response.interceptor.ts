@@ -1,5 +1,5 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
-import { isFalse, isObject, isFunction } from '@recalibratedsystems/netsjs-crud-util';
+import { isFalse, isObject, isFunction } from '@recalibratedsystems/nestjs-crud-util';
 import { classToPlain, classToPlainFromExist } from '@nestjs/class-transformer';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

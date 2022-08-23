@@ -161,8 +161,8 @@
 
 - **repo:** refactor to monorepository
 - **docs:** new [documentation](https://github.com/nestjsx/crud/wiki)
-- **packages:** totally refactor `@nestjsx/crud` to be service (ORM) agnostic
-- **packages:** add `@nestjsx/crud-typeorm` ([docs](https://github.com/nestjsx/crud/wiki/ServiceTypeorm))
+- **packages:** totally refactor `@recalibratedsystems/nestjs-crud` to be service (ORM) agnostic
+- **packages:** add `@recalibratedsystems/nestjs-crud-typeorm` ([docs](https://github.com/nestjsx/crud/wiki/ServiceTypeorm))
 - **packages:** add `@recalibratedsystems/nestjs-crud-request` ([docs](https://github.com/nestjsx/crud/wiki/Requests#description), [#53])
 - **crud:** add global options ([docs](https://github.com/nestjsx/crud/wiki/Controllers#global-options), [#64])
 - **crud:** add eager relations option ([#54], [#67])

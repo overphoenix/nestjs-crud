@@ -6,7 +6,7 @@ import {
   CrudRequest,
   ParsedRequest,
   Override,
-} from '@nestjsx/crud';
+} from '@recalibratedsystems/nestjs-crud';
 
 import { User } from './user.entity';
 import { UsersService } from './users.service';

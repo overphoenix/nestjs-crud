@@ -1,4 +1,4 @@
-import { ParsedRequestParams } from '@recalibratedsystems/netsjs-crud-request';
+import { ParsedRequestParams } from '@recalibratedsystems/nestjs-crud-request';
 
 import { CrudRequestOptions } from '../interfaces';
 

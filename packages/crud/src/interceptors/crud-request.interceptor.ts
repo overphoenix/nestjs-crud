@@ -4,8 +4,8 @@ import {
   RequestQueryParser,
   SCondition,
   QueryFilter,
-} from '@recalibratedsystems/netsjs-crud-request';
-import { isNil, isFunction, isArrayFull, hasLength } from '@recalibratedsystems/netsjs-crud-util';
+} from '@recalibratedsystems/nestjs-crud-request';
+import { isNil, isFunction, isArrayFull, hasLength } from '@recalibratedsystems/nestjs-crud-util';
 
 import { PARSED_CRUD_REQUEST_KEY } from '../constants';
 import { CrudActions } from '../enums';

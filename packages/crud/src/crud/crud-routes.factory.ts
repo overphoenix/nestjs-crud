@@ -11,7 +11,7 @@ import {
   getOwnPropNames,
   isNil,
   isUndefined,
-} from '@recalibratedsystems/netsjs-crud-util';
+} from '@recalibratedsystems/nestjs-crud-util';
 import deepmerge from 'deepmerge';
 
 import { R } from './reflection.helper';

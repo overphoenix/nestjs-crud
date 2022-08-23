@@ -7,7 +7,7 @@ import {
   isNumber,
   isNil,
   objKeys,
-} from '@recalibratedsystems/netsjs-crud-util';
+} from '@recalibratedsystems/nestjs-crud-util';
 
 import { RequestQueryException } from './exceptions';
 import { ParamsOptions, ParamOption } from './interfaces';

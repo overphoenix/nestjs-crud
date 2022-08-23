@@ -1,5 +1,5 @@
-import { RequestQueryBuilder } from '@recalibratedsystems/netsjs-crud-request';
-import { isObjectFull } from '@recalibratedsystems/netsjs-crud-util';
+import { RequestQueryBuilder } from '@recalibratedsystems/nestjs-crud-request';
+import { isObjectFull } from '@recalibratedsystems/nestjs-crud-util';
 import deepmerge from 'deepmerge';
 
 import { CrudGlobalConfig } from '../interfaces';

@@ -7,7 +7,7 @@ import {
   JoinOption,
   JoinOptions,
   QueryOptions,
-} from '@recalibratedsystems/netsjs-crud';
+} from '@recalibratedsystems/nestjs-crud';
 import {
   ParsedRequestParams,
   QueryFilter,
@@ -16,7 +16,7 @@ import {
   SCondition,
   SConditionKey,
   ComparisonOperator,
-} from '@recalibratedsystems/netsjs-crud-request';
+} from '@recalibratedsystems/nestjs-crud-request';
 import {
   ClassType,
   hasLength,
@@ -26,7 +26,7 @@ import {
   objKeys,
   isNil,
   isNull,
-} from '@recalibratedsystems/netsjs-crud-util';
+} from '@recalibratedsystems/nestjs-crud-util';
 import { oO } from '@zmotivat0r/o0';
 import { plainToClass } from '@nestjs/class-transformer';
 import {
