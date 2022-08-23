@@ -1,13 +1,14 @@
 import { HttpStatus } from '@nestjs/common';
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
-import { isString, objKeys } from '@nestjsx/util';
+import { RequestQueryBuilder } from '@recalibratedsystems/netsjs-crud-request';
+import { isString, objKeys, safeRequire } from '@recalibratedsystems/netsjs-crud-util';
 import { MergedCrudOptions, ParamsOptions } from '../interfaces';
 import { BaseRouteName } from '../types';
-import { safeRequire } from '../util';
 import { R } from './reflection.helper';
 const pluralize = require('pluralize');
 
-export const swagger = safeRequire('@nestjs/swagger', () => require('@nestjs/swagger'));
+export const swagger = safeRequire('@nestjs/swagger', () =>
+  require('@nestjs/swagger'),
+);
 export const swaggerConst = safeRequire('@nestjs/swagger/dist/constants', () =>
   require('@nestjs/swagger/dist/constants'),
 );
@@ -53,7 +54,11 @@ export class Swagger {
           .map((name) => swaggerModels[name])
           .filter((one) => one && one.name !== swaggerModels.get.name),
       ];
-      R.set(swaggerConst.DECORATORS.API_EXTRA_MODELS, models, swaggerModels.get);
+      R.set(
+        swaggerConst.DECORATORS.API_EXTRA_MODELS,
+        models,
+        swaggerModels.get,
+      );
     }
   }
 
@@ -66,25 +71,37 @@ export class Swagger {
 
   static getOperation(func: any): any {
     /* istanbul ignore next */
-    return swaggerConst ? R.get(swaggerConst.DECORATORS.API_OPERATION, func) || {} : {};
+    return swaggerConst
+      ? R.get(swaggerConst.DECORATORS.API_OPERATION, func) || {}
+      : {};
   }
 
   static getParams(func: any): any[] {
     /* istanbul ignore next */
-    return swaggerConst ? R.get(swaggerConst.DECORATORS.API_PARAMETERS, func) || [] : [];
+    return swaggerConst
+      ? R.get(swaggerConst.DECORATORS.API_PARAMETERS, func) || []
+      : [];
   }
 
   static getExtraModels(target: unknown): any[] {
     /* istanbul ignore next */
-    return swaggerConst ? R.get(swaggerConst.API_EXTRA_MODELS, target) || [] : [];
+    return swaggerConst
+      ? R.get(swaggerConst.API_EXTRA_MODELS, target) || []
+      : [];
   }
 
   static getResponseOk(func: any): any {
     /* istanbul ignore next */
-    return swaggerConst ? R.get(swaggerConst.DECORATORS.API_RESPONSE, func) || {} : {};
+    return swaggerConst
+      ? R.get(swaggerConst.DECORATORS.API_RESPONSE, func) || {}
+      : {};
   }
 
-  static createResponseMeta(name: BaseRouteName, options: MergedCrudOptions, swaggerModels: any): any {
+  static createResponseMeta(
+    name: BaseRouteName,
+    options: MergedCrudOptions,
+    swaggerModels: any,
+  ): any {
     /* istanbul ignore else */
     if (swagger) {
       const { routes, query } = options;
@@ -118,10 +135,14 @@ export class Swagger {
                   description: 'Get many base response',
                   schema: {
                     oneOf: [
-                      { $ref: swagger.getSchemaPath(swaggerModels.getMany.name) },
+                      {
+                        $ref: swagger.getSchemaPath(swaggerModels.getMany.name),
+                      },
                       {
                         type: 'array',
-                        items: { $ref: swagger.getSchemaPath(swaggerModels.get.name) },
+                        items: {
+                          $ref: swagger.getSchemaPath(swaggerModels.get.name),
+                        },
                       },
                     ],
                   },
@@ -140,7 +161,9 @@ export class Swagger {
           return {
             [HttpStatus.CREATED]: {
               description: 'Get create one base response',
-              schema: { $ref: swagger.getSchemaPath(swaggerModels.create.name) },
+              schema: {
+                $ref: swagger.getSchemaPath(swaggerModels.create.name),
+              },
             },
           };
         case 'createManyBase':
@@ -158,13 +181,17 @@ export class Swagger {
             [HttpStatus.CREATED]: swaggerModels.createMany
               ? /* istanbul ignore next */ {
                   description: 'Get create many base response',
-                  schema: { $ref: swagger.getSchemaPath(swaggerModels.createMany.name) },
+                  schema: {
+                    $ref: swagger.getSchemaPath(swaggerModels.createMany.name),
+                  },
                 }
               : {
                   description: 'Get create many base response',
                   schema: {
                     type: 'array',
-                    items: { $ref: swagger.getSchemaPath(swaggerModels.create.name) },
+                    items: {
+                      $ref: swagger.getSchemaPath(swaggerModels.create.name),
+                    },
                   },
                 },
           };
@@ -183,7 +210,9 @@ export class Swagger {
             [HttpStatus.OK]: routes.deleteOneBase.returnDeleted
               ? {
                   description: 'Delete one base response',
-                  schema: { $ref: swagger.getSchemaPath(swaggerModels.delete.name) },
+                  schema: {
+                    $ref: swagger.getSchemaPath(swaggerModels.delete.name),
+                  },
                 }
               : {
                   description: 'Delete one base response',
@@ -204,7 +233,9 @@ export class Swagger {
             [HttpStatus.OK]: routes.recoverOneBase.returnRecovered
               ? {
                   description: 'Recover one base response',
-                  schema: { $ref: swagger.getSchemaPath(swaggerModels.recover.name) },
+                  schema: {
+                    $ref: swagger.getSchemaPath(swaggerModels.recover.name),
+                  },
                 }
               : {
                   description: 'Recover one base response',
@@ -241,12 +272,17 @@ export class Swagger {
           required: true,
           in: 'path',
           type: options[param].type === 'number' ? Number : String,
-          enum: options[param].enum ? Object.values(options[param].enum) : undefined,
+          enum: options[param].enum
+            ? Object.values(options[param].enum)
+            : undefined,
         }))
       : /* istanbul ignore next */ [];
   }
 
-  static createQueryParamsMeta(name: BaseRouteName, options: MergedCrudOptions) {
+  static createQueryParamsMeta(
+    name: BaseRouteName,
+    options: MergedCrudOptions,
+  ) {
     /* istanbul ignore if */
     if (!swaggerConst) {
       return [];
@@ -459,7 +495,10 @@ export class Swagger {
           minimum: 0,
           maximum: 1,
         }
-      : { ...cacheMetaBase, schema: { type: 'integer', minimum: 0, maximum: 1 } };
+      : {
+          ...cacheMetaBase,
+          schema: { type: 'integer', minimum: 0, maximum: 1 },
+        };
 
     const includeDeletedMetaBase = {
       name: includeDeleted,
@@ -541,7 +580,9 @@ export class Swagger {
   }
 
   private static getSwaggerVersion(): number {
-    return swaggerPkgJson ? parseInt(swaggerPkgJson.version[0], 10) : /* istanbul ignore next */ 3;
+    return swaggerPkgJson
+      ? parseInt(swaggerPkgJson.version[0], 10)
+      : /* istanbul ignore next */ 3;
   }
 }
 
@@ -551,7 +592,9 @@ export function ApiProperty(options?: any): PropertyDecorator {
     /* istanbul ignore else */
     if (swagger) {
       // tslint:disable-next-line
-      const ApiPropertyDecorator = swagger.ApiProperty || /* istanbul ignore next */ swagger.ApiModelProperty;
+      const ApiPropertyDecorator =
+        swagger.ApiProperty ||
+        /* istanbul ignore next */ swagger.ApiModelProperty;
       // tslint:disable-next-line
       ApiPropertyDecorator(options)(target, propertyKey);
     }

@@ -39,13 +39,13 @@
     "build": "npx tsc -b"
   },
   "dependencies": {
-    "@nestjsx/crud-request": "^5.0.0-alpha.3",
-    "@nestjsx/util": "^5.0.0-alpha.3",
-    "deepmerge": "^3.2.0",
+    "@recalibratedsystems/nestjs-crud-request": "^5.0.0-alpha.4",
+    "@recalibratedsystems/nestjs-crud-util": "^5.0.0-alpha.4",
+    "deepmerge": "^4.2.2",
     "pluralize": "^8.0.0"
   },
   "peerDependencies": {
-    "class-transformer": "*",
-    "class-validator": "*"
+    "@nestjs/class-transformer": "*",
+    "@nestjs/class-validator": "*"
   }
 }

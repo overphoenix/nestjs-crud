@@ -1,6 +1,6 @@
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
-import { isObjectFull } from '@nestjsx/util';
-import * as deepmerge from 'deepmerge';
+import { RequestQueryBuilder } from '@recalibratedsystems/netsjs-crud-request';
+import { isObjectFull } from '@recalibratedsystems/netsjs-crud-util';
+import deepmerge from 'deepmerge';
 
 import { CrudGlobalConfig } from '../interfaces';
 
@@ -28,7 +28,11 @@ export class CrudConfigService {
         returnShallow: false,
       },
       deleteOneBase: { interceptors: [], decorators: [], returnDeleted: false },
-      recoverOneBase: { interceptors: [], decorators: [], returnRecovered: false },
+      recoverOneBase: {
+        interceptors: [],
+        decorators: [],
+        returnRecovered: false,
+      },
     },
     params: {},
   };

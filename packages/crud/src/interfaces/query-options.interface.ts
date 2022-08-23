@@ -1,7 +1,7 @@
 import {
   QueryFields,
   QuerySort,
-} from '@nestjsx/crud-request/lib/types/request-query.types';
+} from '@recalibratedsystems/netsjs-crud-request/lib/types/request-query.types';
 
 import { QueryFilterOption } from '../types';
 
