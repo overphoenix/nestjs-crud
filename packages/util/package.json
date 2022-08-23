@@ -1,5 +1,5 @@
 {
-  "name": "@nestjsx/util",
+  "name": "@recalibratedsystems/nestjs-crud-util",
   "description": "NestJs CRUD for RESTful APIs - util",
   "version": "5.0.0-alpha.3",
   "license": "MIT",

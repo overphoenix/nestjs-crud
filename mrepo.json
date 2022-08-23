@@ -1,7 +1,7 @@
 {
   "workspace": {
     "name": "packages",
-    "scope": "nestjsx",
+    "scope": "recalibratedsystems",
     "registry": "npm",
     "packages": [
       {

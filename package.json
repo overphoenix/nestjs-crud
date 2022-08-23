@@ -1,5 +1,5 @@
 {
-  "name": "@nestjsx/crud",
+  "name": "@recalibratedsystems/nestjs-crud",
   "version": "4.0.0",
   "description": "Nest CRUD for RESTful APIs",
   "license": "MIT",
@@ -37,13 +37,6 @@
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
-    }
-  },
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/nestjsx",
-    "donation": {
-      "text": "Become a partner:"
     }
   },
   "dependencies": {
@@ -84,7 +77,7 @@
     "husky": "7.0.4",
     "jest": "27.5.1",
     "jest-extended": "2.0.0",
-    "lerna": "4.0.0",
+    "lerna": "^4.0.0",
     "nodemon": "2.0.15",
     "prettier": "2.6.1",
     "pretty-quick": "3.1.3",
