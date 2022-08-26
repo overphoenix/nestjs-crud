@@ -24,23 +24,6 @@ export type QuerySortArr = [string, QuerySortOperator];
 
 export type QuerySortOperator = 'ASC' | 'DESC';
 
-type DeprecatedCondOperator =
-  | 'eq'
-  | 'ne'
-  | 'gt'
-  | 'lt'
-  | 'gte'
-  | 'lte'
-  | 'starts'
-  | 'ends'
-  | 'cont'
-  | 'excl'
-  | 'in'
-  | 'notin'
-  | 'isnull'
-  | 'notnull'
-  | 'between';
-
 export enum CondOperator {
   EQUALS = '$eq',
   NOT_EQUALS = '$ne',
@@ -67,7 +50,7 @@ export enum CondOperator {
   NOT_IN_LOW = '$notinL',
 }
 
-export type ComparisonOperator = DeprecatedCondOperator | keyof SFieldOperator;
+export type ComparisonOperator = keyof SFieldOperator;
 
 // new search
 export type SPrimitivesVal = string | number | boolean;

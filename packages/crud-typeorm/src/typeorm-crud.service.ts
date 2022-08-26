@@ -603,7 +603,7 @@ export class TypeOrmCrudService<T> extends CrudService<T> {
     }
 
     const allowedRelation = this.getRelationMetadata(cond.field, options);
-
+    
     if (!allowedRelation) {
       return true;
     }
@@ -618,13 +618,13 @@ export class TypeOrmCrudService<T> extends CrudService<T> {
         ? cond.select.filter((column) => allowedRelation.allowedColumns.some((allowed) => allowed === column))
         : allowedRelation.allowedColumns;
 
-      const select = [
-        ...allowedRelation.primaryColumns,
-        ...(isArrayFull(options.persist) ? options.persist : []),
-        ...columns,
-      ].map((col) => `${alias}.${col}`);
+        const select = new Set(
+          [...allowedRelation.primaryColumns, ...(isArrayFull(options.persist) ? options.persist : []), ...columns].map(
+            (col) => `${alias}.${col}`,
+          ),
+        );
 
-      builder.addSelect(select);
+      builder.addSelect(Array.from(select));
     }
   }
 
@@ -837,13 +837,15 @@ export class TypeOrmCrudService<T> extends CrudService<T> {
         ? query.fields.filter((field) => allowed.some((col) => field === col))
         : allowed;
 
-    const select = [
-      ...(options.persist && options.persist.length ? options.persist : []),
-      ...columns,
-      ...this.entityPrimaryColumns,
-    ].map((col) => `${this.alias}.${col}`);
+        const select = new Set(
+          [
+            ...(options.persist && options.persist.length ? options.persist : []),
+            ...columns,
+            ...this.entityPrimaryColumns,
+          ].map((col) => `${this.alias}.${col}`),
+        );
 
-    return select;
+    return Array.from(select);
   }
 
   protected getSort(query: ParsedRequestParams, options: QueryOptions) {
