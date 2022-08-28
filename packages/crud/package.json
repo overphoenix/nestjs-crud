@@ -43,7 +43,7 @@
     "@recalibratedsystems/nestjs-crud-request": "^5.0.1",
     "@recalibratedsystems/nestjs-crud-util": "^5.0.1",
     "deepmerge": "^4.2.2",
-    "pluralize": "^8.0.0"
+    "plur": "^5.1.0"
   },
   "peerDependencies": {
     "@nestjs/class-transformer": "*",
