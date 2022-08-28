@@ -4,7 +4,7 @@ import { isString, objKeys, safeRequire } from '@recalibratedsystems/nestjs-crud
 import { MergedCrudOptions, ParamsOptions } from '../interfaces/index.js';
 import { BaseRouteName } from '../types/index.js';
 import { R } from './reflection.helper.js';
-import * as pluralize from 'pluralize';
+const pluralize = require('pluralize');
 
 export const swagger = safeRequire('@nestjs/swagger', () => require('@nestjs/swagger'));
 export const swaggerConst = safeRequire('@nestjs/swagger/dist/constants', () =>
