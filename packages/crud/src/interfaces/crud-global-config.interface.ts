@@ -1,8 +1,8 @@
 import { RequestQueryBuilderOptions } from '@recalibratedsystems/nestjs-crud-request';
 
-import { RoutesOptions } from './routes-options.interface';
-import { ParamsOptions } from './params-options.interface';
-import { AuthGlobalOptions } from './auth-options.interface';
+import { RoutesOptions } from './routes-options.interface.js';
+import { ParamsOptions } from './params-options.interface.js';
+import { AuthGlobalOptions } from './auth-options.interface.js';
 
 export interface CrudGlobalConfig {
   queryParser?: RequestQueryBuilderOptions;

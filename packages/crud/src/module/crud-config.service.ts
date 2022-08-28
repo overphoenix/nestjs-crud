@@ -2,7 +2,7 @@ import { RequestQueryBuilder } from '@recalibratedsystems/nestjs-crud-request';
 import { isObjectFull } from '@recalibratedsystems/nestjs-crud-util';
 import deepmerge from 'deepmerge';
 
-import { CrudGlobalConfig } from '../interfaces';
+import { CrudGlobalConfig } from '../interfaces/index.js';
 
 export class CrudConfigService {
   static config: CrudGlobalConfig = {

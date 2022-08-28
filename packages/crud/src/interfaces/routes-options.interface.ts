@@ -1,4 +1,4 @@
-import { BaseRouteName } from '../types';
+import { BaseRouteName } from '../types/index.js';
 
 export interface RoutesOptions {
   exclude?: BaseRouteName[];

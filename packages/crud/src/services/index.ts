@@ -1,1 +1,1 @@
-export * from './crud-service.abstract';
+export * from './crud-service.abstract.js';

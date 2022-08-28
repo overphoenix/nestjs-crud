@@ -1,14 +1,14 @@
 import { hasValue, isObject, isString, isArrayFull, isNil, isUndefined } from '@recalibratedsystems/nestjs-crud-util';
 import { stringify } from 'qs';
 
-import { RequestQueryBuilderOptions, CreateQueryParams } from './interfaces';
+import { RequestQueryBuilderOptions, CreateQueryParams } from './interfaces/index.js';
 import {
   validateCondition,
   validateFields,
   validateJoin,
   validateNumeric,
   validateSort,
-} from './request-query.validator';
+} from './request-query.validator.js';
 import {
   QueryFields,
   QueryFilter,
@@ -18,7 +18,7 @@ import {
   QuerySort,
   QuerySortArr,
   SCondition,
-} from './types';
+} from './types/index.js';
 
 // tslint:disable:variable-name ban-types
 export class RequestQueryBuilder {

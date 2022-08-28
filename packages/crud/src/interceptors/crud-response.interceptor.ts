@@ -3,9 +3,9 @@ import { isFalse, isObject, isFunction } from '@recalibratedsystems/nestjs-crud-
 import { classToPlain, classToPlainFromExist } from '@nestjs/class-transformer';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CrudActions } from '../enums';
-import { SerializeOptions } from '../interfaces';
-import { CrudBaseInterceptor } from './crud-base.interceptor';
+import { CrudActions } from '../enums/index.js';
+import { SerializeOptions } from '../interfaces/index.js';
+import { CrudBaseInterceptor } from './crud-base.interceptor.js';
 
 const actionToDtoNameMap: {
   [key in CrudActions]: keyof SerializeOptions;

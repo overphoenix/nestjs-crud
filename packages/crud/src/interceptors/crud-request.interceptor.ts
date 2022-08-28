@@ -7,11 +7,11 @@ import {
 } from '@recalibratedsystems/nestjs-crud-request';
 import { isNil, isFunction, isArrayFull, hasLength } from '@recalibratedsystems/nestjs-crud-util';
 
-import { PARSED_CRUD_REQUEST_KEY } from '../constants';
-import { CrudActions } from '../enums';
-import { MergedCrudOptions, CrudRequest } from '../interfaces';
-import { QueryFilterFunction } from '../types';
-import { CrudBaseInterceptor } from './crud-base.interceptor';
+import { PARSED_CRUD_REQUEST_KEY } from '../constants.js';
+import { CrudActions } from '../enums/index.js';
+import { MergedCrudOptions, CrudRequest } from '../interfaces/index.js';
+import { QueryFilterFunction } from '../types/index.js';
+import { CrudBaseInterceptor } from './crud-base.interceptor.js';
 
 @Injectable()
 export class CrudRequestInterceptor extends CrudBaseInterceptor implements NestInterceptor {

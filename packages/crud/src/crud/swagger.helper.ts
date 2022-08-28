@@ -1,9 +1,9 @@
 import { HttpStatus } from '@nestjs/common';
 import { RequestQueryBuilder } from '@recalibratedsystems/nestjs-crud-request';
 import { isString, objKeys, safeRequire } from '@recalibratedsystems/nestjs-crud-util';
-import { MergedCrudOptions, ParamsOptions } from '../interfaces';
-import { BaseRouteName } from '../types';
-import { R } from './reflection.helper';
+import { MergedCrudOptions, ParamsOptions } from '../interfaces/index.js';
+import { BaseRouteName } from '../types/index.js';
+import { R } from './reflection.helper.js';
 const pluralize = require('pluralize');
 
 export const swagger = safeRequire('@nestjs/swagger', () => require('@nestjs/swagger'));

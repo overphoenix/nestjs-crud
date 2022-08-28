@@ -9,9 +9,9 @@ import {
   objKeys,
 } from '@recalibratedsystems/nestjs-crud-util';
 
-import { RequestQueryException } from './exceptions';
-import { ParamsOptions, ParamOption } from './interfaces';
-import { QueryFields, QueryFilter, ComparisonOperator, QueryJoin, QuerySort, CondOperator } from './types';
+import { RequestQueryException } from './exceptions/index.js';
+import { ParamsOptions, ParamOption } from './interfaces/index.js';
+import { QueryFields, QueryFilter, ComparisonOperator, QueryJoin, QuerySort, CondOperator } from './types/index.js';
 
 export const deprecatedComparisonOperatorsList = [
   'eq',

@@ -1,5 +1,5 @@
-import { CrudService } from '../services';
-import { CrudRequest, GetManyDefaultResponse, CreateManyDto } from '../interfaces';
+import { CrudService } from '../services/index.js';
+import { CrudRequest, GetManyDefaultResponse, CreateManyDto } from '../interfaces/index.js';
 
 export interface CrudController<T> {
   service: CrudService<T>;

@@ -1,6 +1,6 @@
-import { QueryFields, QuerySort } from '@recalibratedsystems/nestjs-crud-request/lib/types/request-query.types';
+import { QueryFields, QuerySort } from '@recalibratedsystems/nestjs-crud-request/lib/types/request-query.types.js';
 
-import { QueryFilterOption } from '../types';
+import { QueryFilterOption } from '../types/index.js';
 
 export interface QueryOptions {
   allow?: QueryFields;

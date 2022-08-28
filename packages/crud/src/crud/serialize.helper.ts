@@ -1,6 +1,6 @@
 import { Type } from '@nestjs/class-transformer';
-import { GetManyDefaultResponse } from '../interfaces';
-import { ApiProperty } from './swagger.helper';
+import { GetManyDefaultResponse } from '../interfaces/index.js';
+import { ApiProperty } from './swagger.helper.js';
 
 export class SerializeHelper {
   static createGetManyDto(dto: any, resourceName: string): any {

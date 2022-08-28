@@ -1,2 +1,2 @@
-export * from './crud-actions.enum';
-export * from './crud-validation-groups.enum';
+export * from './crud-actions.enum.js';
+export * from './crud-validation-groups.enum.js';

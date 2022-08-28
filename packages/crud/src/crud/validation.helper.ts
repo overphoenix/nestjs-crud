@@ -1,8 +1,8 @@
 import { ValidationPipe } from '@nestjs/common';
 import { isFalse, isNil, safeRequire } from '@recalibratedsystems/nestjs-crud-util';
-import { CrudValidationGroups } from '../enums';
-import { CreateManyDto, CrudOptions, MergedCrudOptions } from '../interfaces';
-import { ApiProperty } from './swagger.helper';
+import { CrudValidationGroups } from '../enums/index.js';
+import { CreateManyDto, CrudOptions, MergedCrudOptions } from '../interfaces/index.js';
+import { ApiProperty } from './swagger.helper.js';
 
 const validator = safeRequire('@nestjs/class-validator', () => require('@nestjs/class-validator'));
 const transformer = safeRequire('@nestjs/class-transformer', () => require('@nestjs/class-transformer'));

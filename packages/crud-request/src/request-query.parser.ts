@@ -12,9 +12,9 @@ import {
   ObjectLiteral,
 } from '@recalibratedsystems/nestjs-crud-util';
 
-import { RequestQueryException } from './exceptions';
-import { ParamsOptions, ParsedRequestParams, RequestQueryBuilderOptions } from './interfaces';
-import { RequestQueryBuilder } from './request-query.builder';
+import { RequestQueryException } from './exceptions/index.js';
+import { ParamsOptions, ParsedRequestParams, RequestQueryBuilderOptions } from './interfaces/index.js';
+import { RequestQueryBuilder } from './request-query.builder.js';
 import {
   validateCondition,
   validateJoin,
@@ -22,7 +22,7 @@ import {
   validateParamOption,
   validateSort,
   validateUUID,
-} from './request-query.validator';
+} from './request-query.validator.js';
 import {
   ComparisonOperator,
   QueryFields,
@@ -32,7 +32,7 @@ import {
   SCondition,
   SConditionAND,
   SFields,
-} from './types';
+} from './types/index.js';
 
 // tslint:disable:variable-name ban-types
 export class RequestQueryParser implements ParsedRequestParams {

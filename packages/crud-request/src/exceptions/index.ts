@@ -1,1 +1,1 @@
-export * from './request-query.exception';
+export * from './request-query.exception.js';

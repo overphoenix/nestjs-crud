@@ -1,6 +1,6 @@
-export * from './checks.util';
-export * from './obj.util';
-export * from './types';
+export * from './checks.util.js';
+export * from './obj.util.js';
+export * from './types/index.js';
 
 export function safeRequire<T = any>(path: string, loader?: () => T): T | null {
   try {

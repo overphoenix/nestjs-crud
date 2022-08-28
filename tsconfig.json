@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "declaration": true,
     "noImplicitAny": false,
     "noUnusedLocals": false,
@@ -8,11 +9,9 @@
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2018",
+    "target": "ES2021",
     "sourceMap": true,
-    "allowJs": false,
     "skipLibCheck": false,
-    "esModuleInterop": true,
     "composite": true,
     "baseUrl": "./packages",
     "paths": {

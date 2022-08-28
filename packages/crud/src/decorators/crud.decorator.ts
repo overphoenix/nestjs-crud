@@ -1,5 +1,5 @@
-import { CrudRoutesFactory } from '../crud';
-import { CrudOptions } from '../interfaces';
+import { CrudRoutesFactory } from '../crud/index.js';
+import { CrudOptions } from '../interfaces/index.js';
 
 export const Crud =
   (options: CrudOptions) =>

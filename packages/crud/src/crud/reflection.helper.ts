@@ -1,4 +1,4 @@
-import { RouteParamtypes } from '@nestjs/common/enums/route-paramtypes.enum';
+import { RouteParamtypes } from '@nestjs/common/enums/route-paramtypes.enum.js';
 import {
   CUSTOM_ROUTE_ARGS_METADATA,
   INTERCEPTORS_METADATA,
@@ -6,12 +6,12 @@ import {
   PARAMTYPES_METADATA,
   PATH_METADATA,
   ROUTE_ARGS_METADATA,
-} from '@nestjs/common/constants';
+} from '@nestjs/common/constants.js';
 import { ArgumentsHost } from '@nestjs/common';
 import { isFunction } from '@recalibratedsystems/nestjs-crud-util';
 
-import { BaseRoute, MergedCrudOptions, AuthOptions } from '../interfaces';
-import { BaseRouteName } from '../types';
+import { BaseRoute, MergedCrudOptions, AuthOptions } from '../interfaces/index.js';
+import { BaseRouteName } from '../types/index.js';
 import {
   CRUD_OPTIONS_METADATA,
   ACTION_NAME_METADATA,
@@ -19,8 +19,8 @@ import {
   PARSED_BODY_METADATA,
   OVERRIDE_METHOD_METADATA,
   CRUD_AUTH_OPTIONS_METADATA,
-} from '../constants';
-import { CrudActions } from '../enums';
+} from '../constants.js';
+import { CrudActions } from '../enums/index.js';
 
 export class R {
   static set(metadataKey: any, metadataValue: any, target: unknown, propertyKey: string | symbol = undefined) {

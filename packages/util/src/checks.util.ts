@@ -1,4 +1,4 @@
-import { objKeys } from './obj.util';
+import { objKeys } from './obj.util.js';
 
 export const isUndefined = (val: any): boolean => typeof val === 'undefined';
 export const isNull = (val: any): boolean => val === null;

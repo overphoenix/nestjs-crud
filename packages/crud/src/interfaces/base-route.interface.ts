@@ -1,6 +1,6 @@
 import { RequestMethod } from '@nestjs/common';
 
-import { BaseRouteName } from '../types';
+import { BaseRouteName } from '../types/index.js';
 
 export interface BaseRoute {
   name: BaseRouteName;

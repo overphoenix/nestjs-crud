@@ -1,2 +1,2 @@
-export * from './request-query.types';
-export * from './request-param.types';
+export * from './request-query.types.js';
+export * from './request-param.types.js';

@@ -2,7 +2,13 @@ import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { ParsedRequestParams } from '@recalibratedsystems/nestjs-crud-request';
 import { objKeys } from '@recalibratedsystems/nestjs-crud-util';
 
-import { CreateManyDto, CrudRequest, CrudRequestOptions, GetManyDefaultResponse, QueryOptions } from '../interfaces';
+import {
+  CreateManyDto,
+  CrudRequest,
+  CrudRequestOptions,
+  GetManyDefaultResponse,
+  QueryOptions,
+} from '../interfaces/index.js';
 
 export abstract class CrudService<T> {
   throwBadRequestException(msg?: unknown): BadRequestException {

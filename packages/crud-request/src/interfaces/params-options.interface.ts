@@ -1,4 +1,4 @@
-import { ParamOptionType } from '../types';
+import { ParamOptionType } from '../types/index.js';
 
 export interface ParamsOptions {
   [key: string]: ParamOption;

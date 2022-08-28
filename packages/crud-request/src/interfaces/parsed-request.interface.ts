@@ -1,5 +1,5 @@
 import { ObjectLiteral } from '@recalibratedsystems/nestjs-crud-util';
-import { QueryFields, QueryFilter, QueryJoin, QuerySort, SCondition } from '../types';
+import { QueryFields, QueryFilter, QueryJoin, QuerySort, SCondition } from '../types/index.js';
 
 export interface ParsedRequestParams {
   fields: QueryFields;

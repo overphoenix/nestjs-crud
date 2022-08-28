@@ -1,13 +1,13 @@
 import { ValidationPipeOptions } from '@nestjs/common';
 
-import { CrudRoutesFactory } from '../crud';
-import { ModelOptions } from './model-options.interface';
-import { ParamsOptions } from './params-options.interface';
-import { QueryOptions } from './query-options.interface';
-import { RoutesOptions } from './routes-options.interface';
-import { AuthOptions } from './auth-options.interface';
-import { DtoOptions } from './dto-options.interface';
-import { SerializeOptions } from './serialize-options.interface';
+import { CrudRoutesFactory } from '../crud/index.js';
+import { ModelOptions } from './model-options.interface.js';
+import { ParamsOptions } from './params-options.interface.js';
+import { QueryOptions } from './query-options.interface.js';
+import { RoutesOptions } from './routes-options.interface.js';
+import { AuthOptions } from './auth-options.interface.js';
+import { DtoOptions } from './dto-options.interface.js';
+import { SerializeOptions } from './serialize-options.interface.js';
 
 export interface CrudRequestOptions {
   query?: QueryOptions;

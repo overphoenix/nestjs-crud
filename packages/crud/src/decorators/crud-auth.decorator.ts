@@ -1,5 +1,5 @@
-import { R } from '../crud/reflection.helper';
-import { AuthOptions } from '../interfaces';
+import { R } from '../crud/reflection.helper.js';
+import { AuthOptions } from '../interfaces/index.js';
 
 export const CrudAuth =
   (options: AuthOptions) =>

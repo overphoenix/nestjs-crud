@@ -1,6 +1,6 @@
 import { SetMetadata, Type } from '@nestjs/common';
 
-import { ACTION_NAME_METADATA, FEAUTURE_NAME_METADATA } from '../constants';
+import { ACTION_NAME_METADATA, FEAUTURE_NAME_METADATA } from '../constants.js';
 
 export const Feature = (name: string) => SetMetadata(FEAUTURE_NAME_METADATA, name);
 export const Action = (name: string) => SetMetadata(ACTION_NAME_METADATA, name);

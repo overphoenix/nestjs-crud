@@ -1,4 +1,4 @@
-import { SwaggerEnumType } from '@nestjs/swagger/dist/types/swagger-enum.type';
+import { SwaggerEnumType } from '@nestjs/swagger/dist/types/swagger-enum.type.js';
 import { ParamOptionType } from '@recalibratedsystems/nestjs-crud-request';
 
 export interface ParamsOptions {

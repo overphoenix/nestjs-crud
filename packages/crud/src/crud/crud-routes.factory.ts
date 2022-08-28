@@ -1,5 +1,5 @@
 import { RequestMethod } from '@nestjs/common';
-import { RouteParamtypes } from '@nestjs/common/enums/route-paramtypes.enum';
+import { RouteParamtypes } from '@nestjs/common/enums/route-paramtypes.enum.js';
 import {
   isFalse,
   isArrayFull,
@@ -14,15 +14,15 @@ import {
 } from '@recalibratedsystems/nestjs-crud-util';
 import deepmerge from 'deepmerge';
 
-import { R } from './reflection.helper';
-import { SerializeHelper } from './serialize.helper';
-import { Swagger } from './swagger.helper';
-import { Validation } from './validation.helper';
-import { CrudRequestInterceptor, CrudResponseInterceptor } from '../interceptors';
-import { BaseRoute, CrudOptions, CrudRequest, MergedCrudOptions } from '../interfaces';
-import { BaseRouteName } from '../types';
-import { CrudActions, CrudValidationGroups } from '../enums';
-import { CrudConfigService } from '../module';
+import { R } from './reflection.helper.js';
+import { SerializeHelper } from './serialize.helper.js';
+import { Swagger } from './swagger.helper.js';
+import { Validation } from './validation.helper.js';
+import { CrudRequestInterceptor, CrudResponseInterceptor } from '../interceptors/index.js';
+import { BaseRoute, CrudOptions, CrudRequest, MergedCrudOptions } from '../interfaces/index.js';
+import { BaseRouteName } from '../types/index.js';
+import { CrudActions, CrudValidationGroups } from '../enums/index.js';
+import { CrudConfigService } from '../module/index.js';
 
 export class CrudRoutesFactory {
   protected options: MergedCrudOptions;

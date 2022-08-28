@@ -7,7 +7,7 @@ import {
   QuerySort,
   QuerySortArr,
   SCondition,
-} from '../types';
+} from '../types/index.js';
 
 export interface CreateQueryParams {
   fields?: QueryFields;
