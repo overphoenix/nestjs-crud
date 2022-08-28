@@ -1377,7 +1377,7 @@
     multer "1.4.4-lts.1"
     tslib "2.4.0"
 
-"@nestjs/swagger@^6.0.5":
+"@nestjs/swagger@^6.1.0":
   version "6.1.0"
   resolved "https://registry.npmjs.org/@nestjs/swagger/-/swagger-6.1.0.tgz#a22a972eda8c202f63d3147bc57cc5e00e8dff97"
   integrity sha512-Lflplv216nXkH6By/jMggQjpuH1V67M07tgHXUAZujAwG3LAJ1CfSvzuFckK4MAb54xQTYvFgfVPWkXqvKXzdA==
@@ -8533,6 +8533,11 @@ plur@^5.1.0:
   integrity sha512-VP/72JeXqak2KiOzjgKtQen5y3IZHn+9GOuLDafPv0eXa47xq0At93XahYBs26MsifCQ4enGKwbjBTKgb9QJXg==
   dependencies:
     irregular-plurals "^3.3.0"
+
+pluralize@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.npmjs.org/pluralize/-/pluralize-8.0.0.tgz#1a6fa16a38d12a1901e0320fa017051c539ce3b1"
+  integrity sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==
 
 posix-character-classes@^0.1.0:
   version "0.1.1"

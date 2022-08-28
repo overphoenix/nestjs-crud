@@ -4,7 +4,7 @@ import { isString, objKeys, safeRequire } from '@recalibratedsystems/nestjs-crud
 import { MergedCrudOptions, ParamsOptions } from '../interfaces/index.js';
 import { BaseRouteName } from '../types/index.js';
 import { R } from './reflection.helper.js';
-import plur from 'plur';
+import * as pluralize from 'pluralize';
 
 export const swagger = safeRequire('@nestjs/swagger', () => require('@nestjs/swagger'));
 export const swaggerConst = safeRequire('@nestjs/swagger/dist/constants', () =>
@@ -17,9 +17,9 @@ export const swaggerPkgJson = safeRequire('@nestjs/swagger/package.json', () =>
 export class Swagger {
   static operationsMap(modelName: string): { [key in BaseRouteName]: string } {
     return {
-      getManyBase: `Retrieve multiple ${plur(modelName)}`,
+      getManyBase: `Retrieve multiple ${pluralize(modelName)}`,
       getOneBase: `Retrieve a single ${modelName}`,
-      createManyBase: `Create multiple ${plur(modelName)}`,
+      createManyBase: `Create multiple ${pluralize(modelName)}`,
       createOneBase: `Create a single ${modelName}`,
       updateOneBase: `Update a single ${modelName}`,
       replaceOneBase: `Replace a single ${modelName}`,
