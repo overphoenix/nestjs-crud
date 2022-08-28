@@ -44,7 +44,7 @@
     "@nestjs/common": "^9.0.11",
     "@nestjs/core": "^9.0.11",
     "@nestjs/platform-express": "^9.0.11",
-    "@nestjs/swagger": "^6.0.5",
+    "@nestjs/swagger": "^6.1.0",
     "@nestjs/testing": "^9.0.8",
     "@nestjs/typeorm": "^9.0.1",
     "@zmotivat0r/mrepo": "0.8.1",
