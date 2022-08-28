@@ -110,25 +110,25 @@ export class Swagger {
           return {
             [HttpStatus.OK]: query.alwaysPaginate
               ? {
-                description: 'Get paginated response',
-                type: swaggerModels.getMany,
-              }
+                  description: 'Get paginated response',
+                  type: swaggerModels.getMany,
+                }
               : {
-                description: 'Get many base response',
-                schema: {
-                  oneOf: [
-                    {
-                      $ref: swagger.getSchemaPath(swaggerModels.getMany.name),
-                    },
-                    {
-                      type: 'array',
-                      items: {
-                        $ref: swagger.getSchemaPath(swaggerModels.get.name),
+                  description: 'Get many base response',
+                  schema: {
+                    oneOf: [
+                      {
+                        $ref: swagger.getSchemaPath(swaggerModels.getMany.name),
                       },
-                    },
-                  ],
+                      {
+                        type: 'array',
+                        items: {
+                          $ref: swagger.getSchemaPath(swaggerModels.get.name),
+                        },
+                      },
+                    ],
+                  },
                 },
-              },
           };
         case 'createOneBase':
           /* istanbul ignore if */
@@ -162,20 +162,20 @@ export class Swagger {
           return {
             [HttpStatus.CREATED]: swaggerModels.createMany
               ? /* istanbul ignore next */ {
-                description: 'Get create many base response',
-                schema: {
-                  $ref: swagger.getSchemaPath(swaggerModels.createMany.name),
-                },
-              }
+                  description: 'Get create many base response',
+                  schema: {
+                    $ref: swagger.getSchemaPath(swaggerModels.createMany.name),
+                  },
+                }
               : {
-                description: 'Get create many base response',
-                schema: {
-                  type: 'array',
-                  items: {
-                    $ref: swagger.getSchemaPath(swaggerModels.create.name),
+                  description: 'Get create many base response',
+                  schema: {
+                    type: 'array',
+                    items: {
+                      $ref: swagger.getSchemaPath(swaggerModels.create.name),
+                    },
                   },
                 },
-              },
           };
         case 'deleteOneBase':
           /* istanbul ignore if */
@@ -183,22 +183,22 @@ export class Swagger {
             return {
               [HttpStatus.OK]: routes.deleteOneBase.returnDeleted
                 ? {
-                  type: swaggerModels.delete,
-                }
+                    type: swaggerModels.delete,
+                  }
                 : {},
             };
           }
           return {
             [HttpStatus.OK]: routes.deleteOneBase.returnDeleted
               ? {
-                description: 'Delete one base response',
-                schema: {
-                  $ref: swagger.getSchemaPath(swaggerModels.delete.name),
-                },
-              }
+                  description: 'Delete one base response',
+                  schema: {
+                    $ref: swagger.getSchemaPath(swaggerModels.delete.name),
+                  },
+                }
               : {
-                description: 'Delete one base response',
-              },
+                  description: 'Delete one base response',
+                },
           };
         case 'recoverOneBase':
           /* istanbul ignore if */
@@ -206,22 +206,22 @@ export class Swagger {
             return {
               [HttpStatus.OK]: routes.recoverOneBase.returnRecovered
                 ? {
-                  type: swaggerModels.delete,
-                }
+                    type: swaggerModels.delete,
+                  }
                 : {},
             };
           }
           return {
             [HttpStatus.OK]: routes.recoverOneBase.returnRecovered
               ? {
-                description: 'Recover one base response',
-                schema: {
-                  $ref: swagger.getSchemaPath(swaggerModels.recover.name),
-                },
-              }
+                  description: 'Recover one base response',
+                  schema: {
+                    $ref: swagger.getSchemaPath(swaggerModels.recover.name),
+                  },
+                }
               : {
-                description: 'Recover one base response',
-              },
+                  description: 'Recover one base response',
+                },
           };
         default:
           const dto = swaggerModels[name.split('OneBase')[0]];
@@ -250,13 +250,13 @@ export class Swagger {
   static createPathParamsMeta(options: ParamsOptions): any[] {
     return swaggerConst
       ? objKeys(options).map((param) => ({
-        name: param,
-        required: true,
-        in: 'path',
-        type: options[param].type === 'number' ? Number : String,
-        enum: options[param].enum ? Object.values(options[param].enum) : undefined,
-      }))
-      : /* istanbul ignore next */[];
+          name: param,
+          required: true,
+          in: 'path',
+          type: options[param].type === 'number' ? Number : String,
+          enum: options[param].enum ? Object.values(options[param].enum) : undefined,
+        }))
+      : /* istanbul ignore next */ [];
   }
 
   static createQueryParamsMeta(name: BaseRouteName, options: MergedCrudOptions) {
@@ -292,24 +292,24 @@ export class Swagger {
     };
     const fieldsMeta = oldVersion
       ? /* istanbul ignore next */ {
-        ...fieldsMetaBase,
-        type: 'array',
-        items: {
-          type: 'string',
-        },
-        collectionFormat: 'csv',
-      }
-      : {
-        ...fieldsMetaBase,
-        schema: {
+          ...fieldsMetaBase,
           type: 'array',
           items: {
             type: 'string',
           },
-        },
-        style: 'form',
-        explode: false,
-      };
+          collectionFormat: 'csv',
+        }
+      : {
+          ...fieldsMetaBase,
+          schema: {
+            type: 'array',
+            items: {
+              type: 'string',
+            },
+          },
+          style: 'form',
+          explode: false,
+        };
 
     const searchMetaBase = {
       name: search,
@@ -329,24 +329,24 @@ export class Swagger {
     };
     const filterMeta = oldVersion
       ? /* istanbul ignore next */ {
-        ...filterMetaBase,
-        items: {
-          type: 'string',
-        },
-        type: 'array',
-        collectionFormat: 'multi',
-      }
-      : {
-        ...filterMetaBase,
-        schema: {
-          type: 'array',
+          ...filterMetaBase,
           items: {
             type: 'string',
           },
-        },
-        style: 'form',
-        explode: true,
-      };
+          type: 'array',
+          collectionFormat: 'multi',
+        }
+      : {
+          ...filterMetaBase,
+          schema: {
+            type: 'array',
+            items: {
+              type: 'string',
+            },
+          },
+          style: 'form',
+          explode: true,
+        };
 
     const orMetaBase = {
       name: or,
@@ -356,24 +356,24 @@ export class Swagger {
     };
     const orMeta = oldVersion
       ? /* istanbul ignore next */ {
-        ...orMetaBase,
-        items: {
-          type: 'string',
-        },
-        type: 'array',
-        collectionFormat: 'multi',
-      }
-      : {
-        ...orMetaBase,
-        schema: {
-          type: 'array',
+          ...orMetaBase,
           items: {
             type: 'string',
           },
-        },
-        style: 'form',
-        explode: true,
-      };
+          type: 'array',
+          collectionFormat: 'multi',
+        }
+      : {
+          ...orMetaBase,
+          schema: {
+            type: 'array',
+            items: {
+              type: 'string',
+            },
+          },
+          style: 'form',
+          explode: true,
+        };
 
     const sortMetaBase = {
       name: sort,
@@ -383,24 +383,24 @@ export class Swagger {
     };
     const sortMeta = oldVersion
       ? /* istanbul ignore next */ {
-        ...sortMetaBase,
-        items: {
-          type: 'string',
-        },
-        type: 'array',
-        collectionFormat: 'multi',
-      }
-      : {
-        ...sortMetaBase,
-        schema: {
-          type: 'array',
+          ...sortMetaBase,
           items: {
             type: 'string',
           },
-        },
-        style: 'form',
-        explode: true,
-      };
+          type: 'array',
+          collectionFormat: 'multi',
+        }
+      : {
+          ...sortMetaBase,
+          schema: {
+            type: 'array',
+            items: {
+              type: 'string',
+            },
+          },
+          style: 'form',
+          explode: true,
+        };
 
     const joinMetaBase = {
       name: join,
@@ -410,24 +410,24 @@ export class Swagger {
     };
     const joinMeta = oldVersion
       ? /* istanbul ignore next */ {
-        ...joinMetaBase,
-        items: {
-          type: 'string',
-        },
-        type: 'array',
-        collectionFormat: 'multi',
-      }
-      : {
-        ...joinMetaBase,
-        schema: {
-          type: 'array',
+          ...joinMetaBase,
           items: {
             type: 'string',
           },
-        },
-        style: 'form',
-        explode: true,
-      };
+          type: 'array',
+          collectionFormat: 'multi',
+        }
+      : {
+          ...joinMetaBase,
+          schema: {
+            type: 'array',
+            items: {
+              type: 'string',
+            },
+          },
+          style: 'form',
+          explode: true,
+        };
 
     const limitMetaBase = {
       name: limit,
@@ -467,15 +467,15 @@ export class Swagger {
     };
     const cacheMeta = oldVersion
       ? /* istanbul ignore next */ {
-        ...cacheMetaBase,
-        type: 'integer',
-        minimum: 0,
-        maximum: 1,
-      }
+          ...cacheMetaBase,
+          type: 'integer',
+          minimum: 0,
+          maximum: 1,
+        }
       : {
-        ...cacheMetaBase,
-        schema: { type: 'integer', minimum: 0, maximum: 1 },
-      };
+          ...cacheMetaBase,
+          schema: { type: 'integer', minimum: 0, maximum: 1 },
+        };
 
     const includeDeletedMetaBase = {
       name: includeDeleted,
@@ -485,44 +485,44 @@ export class Swagger {
     };
     const includeDeletedMeta = oldVersion
       ? /* istanbul ignore next */ {
-        ...includeDeletedMetaBase,
-        type: 'integer',
-        minimum: 0,
-        maximum: 1,
-      }
+          ...includeDeletedMetaBase,
+          type: 'integer',
+          minimum: 0,
+          maximum: 1,
+        }
       : {
-        ...includeDeletedMetaBase,
-        schema: { type: 'integer', minimum: 0, maximum: 1 },
-      };
+          ...includeDeletedMetaBase,
+          schema: { type: 'integer', minimum: 0, maximum: 1 },
+        };
 
     switch (name) {
       case 'getManyBase':
         return options.query.softDelete
           ? [
-            fieldsMeta,
-            searchMeta,
-            filterMeta,
-            orMeta,
-            sortMeta,
-            joinMeta,
-            limitMeta,
-            offsetMeta,
-            pageMeta,
-            cacheMeta,
-            includeDeletedMeta,
-          ]
+              fieldsMeta,
+              searchMeta,
+              filterMeta,
+              orMeta,
+              sortMeta,
+              joinMeta,
+              limitMeta,
+              offsetMeta,
+              pageMeta,
+              cacheMeta,
+              includeDeletedMeta,
+            ]
           : [
-            fieldsMeta,
-            searchMeta,
-            filterMeta,
-            orMeta,
-            sortMeta,
-            joinMeta,
-            limitMeta,
-            offsetMeta,
-            pageMeta,
-            cacheMeta,
-          ];
+              fieldsMeta,
+              searchMeta,
+              filterMeta,
+              orMeta,
+              sortMeta,
+              joinMeta,
+              limitMeta,
+              offsetMeta,
+              pageMeta,
+              cacheMeta,
+            ];
       case 'getOneBase':
         return options.query.softDelete
           ? [fieldsMeta, joinMeta, cacheMeta, includeDeletedMeta]
